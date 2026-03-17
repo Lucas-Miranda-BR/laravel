@@ -22,6 +22,12 @@ class PrincipalController extends Controller
         echo 'Página de Contato de ' . $nome . ' ' . $sobrenome . '<br>';
         echo 'Mensagem atribuida: ' . $mensagem;
     }
+    function contatoTelefone(string $nome, string $sobrenome, string $mensagem, string $telefone, string $email = 'N/A.'){
+        echo 'Página de Contato de ' . $nome . ' ' . $sobrenome . '<br>';
+        echo 'Mensagem atribuida: ' . $mensagem . '<br>';
+        echo 'N. telefone: ' . $telefone . '<br>';
+        echo 'E-mail: ' . $email;
+    }
 
     
 }

@@ -13,11 +13,16 @@ use App\Http\Middleware\LogAcessoMiddleware;
 |
 */
 
-Route::get('/', [App\Http\Controllers\PrincipalController::class, 'principal']);
-Route::get('/contato', [App\Http\Controllers\PrincipalController::class, 'contato']);
-Route::get('/contato/{nome}', [App\Http\Controllers\PrincipalController::class, 'contatoNome']);
-Route::get('/contato/{nome}/{sobrenome}', [App\Http\Controllers\PrincipalController::class, 'contatoNomeCompleto']);
-Route::get('/contato/{nome}/{sobrenome}/{mensagem}', [App\Http\Controllers\PrincipalController::class, 'contatoMensagem']);
+Route::prefix('publico')->group(function(){
+    Route::get('/', [App\Http\Controllers\PrincipalController::class, 'principal']);
+    Route::get('/contato', [App\Http\Controllers\PrincipalController::class, 'contato']);
+    Route::get('/contato/{nome}', [App\Http\Controllers\PrincipalController::class, 'contatoNome']);
+    Route::get('/contato/{nome}/{sobrenome}', [App\Http\Controllers\PrincipalController::class, 'contatoNomeCompleto']);
+    Route::get('/contato/{nome}/{sobrenome}/{mensagem}', [App\Http\Controllers\PrincipalController::class, 'contatoMensagem']);
+    Route::get('/contato/{nome}/{sobrenome}/{mensagem}/{telefone}/{email?}', [App\Http\Controllers\PrincipalController::class, 'contatoTelefone']);
+});
+
+
 
 
 
