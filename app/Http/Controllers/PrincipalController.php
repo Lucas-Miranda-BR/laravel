@@ -9,14 +9,17 @@ class PrincipalController extends Controller
     function principal(){
         echo 'Página Principal';
     }
+    function contato(){
+        echo 'Página de Contato';
+    }
     function contatoNome(string $nome){
-        echo 'Página de Contado de ' . $nome;
+        echo 'Página de Contato de ' . $nome;
     }
     function contatoNomeCompleto(string $nome, string $sobrenome){
         echo 'Página de Contato de ' . $nome . ' ' . $sobrenome;
     }
     function contatoMensagem(string $nome, string $sobrenome, string $mensagem){
-        echo 'Página de Contato de ' . $nome . ' ' . $sobrenome;
+        echo 'Página de Contato de ' . $nome . ' ' . $sobrenome . '<br>';
         echo 'Mensagem atribuida: ' . $mensagem;
     }
 
