@@ -14,12 +14,17 @@ use App\Http\Middleware\LogAcessoMiddleware;
 */
 
 Route::prefix('publico')->group(function(){
-    Route::get('/', [App\Http\Controllers\PrincipalController::class, 'principal']);
+    Route::get('/', [App\Http\Controllers\PrincipalController::class, 'principal'])->name("pagina-principal");
     Route::get('/contato', [App\Http\Controllers\PrincipalController::class, 'contato']);
     Route::get('/contato/{nome}', [App\Http\Controllers\PrincipalController::class, 'contatoNome']);
     Route::get('/contato/{nome}/{sobrenome}', [App\Http\Controllers\PrincipalController::class, 'contatoNomeCompleto']);
     Route::get('/contato/{nome}/{sobrenome}/{mensagem}', [App\Http\Controllers\PrincipalController::class, 'contatoMensagem']);
     Route::get('/contato/{nome}/{sobrenome}/{mensagem}/{telefone}/{email?}', [App\Http\Controllers\PrincipalController::class, 'contatoTelefone']);
+});
+
+Route::fallback(function(){
+    echo "Error 404 - Not Found - Rota acessada não existe <br>";
+    echo "<a href='". route('pagina-principal') ."'>Voltar</a>";
 });
 
 
