@@ -15,6 +15,11 @@ use App\Http\Middleware\LogAcessoMiddleware;
 
 Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
 
+Route::get('/aluno/show', [App\Http\Controllers\Aluno::class, 'showAluno'])->name('aluno.show');
+Route::get('/professor/show', [App\Http\Controllers\Professor::class, 'showProfessor'])->name('professor.show');
+Route::get('/curso/show', [App\Http\Controllers\Curso::class, 'showCurso'])->name('curso.show');
+Route::get('/componente/show', [App\Http\Controllers\Componente::class, 'showComponente'])->name('componente.show');
+
 
 
 
