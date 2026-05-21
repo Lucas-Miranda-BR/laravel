@@ -13,7 +13,9 @@ class AlunoController extends Controller
     function createAluno(Request $dados){
         $aluno = new \App\Models\AlunoModel();
         $aluno::create($dados->all());
-        return view('aluno.index', ['success' => 'Cadastro realizado']);
+
+        $alunos = new \App\Models\AlunoModel();
+        return view('aluno.index', ['success'=>'Cadastrado de aluno realizado!', 'alunos'=>$alunos::all()]);
     }
 
     function readAluno(){
