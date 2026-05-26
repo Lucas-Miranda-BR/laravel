@@ -38,3 +38,11 @@ Route::prefix('/professor')->group(function(){
     Route::post('/update', [App\Http\Controllers\ProfessorController::class, 'updateProfessor'])->name('professor.update');
     Route::post('/delete', [App\Http\Controllers\ProfessorController::class, 'deleteProfessor'])->name('professor.delete');
 });
+
+Route::prefix('/adminstrador')->group(function(){
+    Route::get('/index', [App\Http\Controllers\AdminstradorController::class, 'indexAdminstrador'])->name('adminstrador.index');
+    Route::post('/create', [App\Http\Controllers\AdminstradorController::class, 'createAdminstrador'])->name('adminstrador.create');
+    Route::get('/read', [App\Http\Controllers\AdminstradorController::class, 'readAdminstrador'])->name('adminstrador.read');
+    Route::post('/update', [App\Http\Controllers\AdminstradorController::class, 'updateAdminstrador'])->name('adminstrador.update');
+    Route::post('/delete', [App\Http\Controllers\AdminstradorController::class, 'deleteAdminstrador'])->name('adminstrador.delete');
+});

@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cadastro de professor</title>
+    <title>Cadastro de componente</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
     <body>
         <div class="d-flex justify-content-center">
-            <form action="{{route('professor.create')}}" method="post">
+            <form action="{{route('componente.create')}}" method="post">
                     <fieldset>
-                        <legend>Cadastro de professor</legend>
+                        <legend>Cadastro de componente</legend>
 
                         @csrf
                         
@@ -20,13 +20,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="email">E-mail</label>
-                            <input class="form-control" type="email" name="email" id="email" required autocomplete="off">
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label" for="telefone">Nº de Telefone</label>
-                            <input class="form-control" type="tel" name="telefone" id="telefone" placeholder="Número de 11 digitos." required autocomplete="off" pattern="[0-9]{11}">
+                            <label class="form-label" for="periodo">Periodo</label>
+                            <input class="form-control" type="text" name="periodo" id="periodo" required autocomplete="off">
                         </div>
                         
                         <div class="mb-3">
@@ -39,15 +34,13 @@
                             </div>
                         @endisset
 
-                        @isset($professores)
-                            @foreach($professores as $professor)
-                                <p>Nome: {{ $professor->nome }}</p>
+                        @isset($componentes)
+                            @foreach($componentes as $componente)
+                                <p>Nome: {{ $componente->nome }}</p>
                                 <br>
-                                <p>E-mail: {{ $professor->email }}</p>
+                                <p>Periodo: {{ $componente->periodo }}</p>
                                 <br>
-                                <p>Nº de Telefone: {{ $professor->telefone }}</p>
-                                <br>
-                                <p>ID: {{ $professor->id }}</p>
+                                <p>ID: {{ $componente->id }}</p>
                                 <hr>
                             @endforeach
                     @endisset
