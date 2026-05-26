@@ -41,11 +41,13 @@
 
                         @isset($professores)
                             @foreach($professores as $professor)
-                                <p>{{ $professor->nome }}</p>
+                                <p>Nome: {{ $professor->nome }}</p>
                                 <br>
-                                <p>{{ $professor->email }}</p>
+                                <p>E-mail: {{ $professor->email }}</p>
                                 <br>
-                                <p>{{ $professor->telefone }}</p>
+                                <p>Nº de Telefone: {{ $professor->telefone }}</p>
+                                <br>
+                                <p>ID: {{ $professor->id }}</p>
                                 <hr>
                             @endforeach
                     @endisset

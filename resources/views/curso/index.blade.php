@@ -36,9 +36,11 @@
 
                         @isset($cursos)
                             @foreach($cursos as $curso)
-                                <p>{{ $curso->nome }}</p>
+                                <p>Nome: {{ $curso->nome }}</p>
                                 <br>
-                                <p>{{ $curso->periodo }}</p>
+                                <p>Periodo: {{ $curso->periodo }}</p>
+                                <br>
+                                <p>ID: {{ $curso->id }}</p>
                                 <hr>
                             @endforeach
                     @endisset

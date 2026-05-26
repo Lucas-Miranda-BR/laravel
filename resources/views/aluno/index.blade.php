@@ -31,7 +31,9 @@
 
                         @isset($alunos)
                             @foreach($alunos as $aluno)
-                                <p>{{ $aluno->nome }}</p>
+                                <p>Nome: {{ $aluno->nome }}</p>
+                                <br>
+                                <p>ID: {{ $aluno->id }}</p>
                                 <hr>
                             @endforeach
                     @endisset
