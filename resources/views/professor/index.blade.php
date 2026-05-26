@@ -26,7 +26,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="telefone">Nº Telefone</label>
-                            <input class="form-control" type="tel" name="telefone" id="telefone" required autocomplete="off">
+                            <input class="form-control" type="tel" name="telefone" id="telefone" placeholder="Número de 11 digitos." required autocomplete="off" pattern="[0-9]{11}">
                         </div>
                         
                         <div class="mb-3">

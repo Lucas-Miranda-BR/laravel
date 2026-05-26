@@ -15,7 +15,7 @@ class CursoController extends Controller
         $curso = new \App\Models\CursoModel();
         $curso::create($dados->all());
 
-        $cursos = new \App\Models\AlunoModel();
+        $cursos = new \App\Models\CursoModel();
         return view('curso.index', ['success' => 'Cadastro de curso realizado!', 'cursos'=>$cursos::all()]);
     }
 

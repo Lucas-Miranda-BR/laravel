@@ -15,7 +15,7 @@ class ProfessorController extends Controller
         $professor = new \App\Models\ProfessorModel();
         $professor::create($dados->all());
 
-        $professoress = new \App\Models\ProfessorModel();
+        $professores = new \App\Models\ProfessorModel();
         return view('professor.index', ['success'=>'Cadastrado de professor realizado!', 'professores'=>$professores::all()]);
     }
 
