@@ -20,8 +20,13 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="periodo">Periodo</label>
-                            <input class="form-control" type="text" name="periodo" id="periodo" required autocomplete="off">
+                            <label class="form-label" for="data_inicio">Inico</label>
+                            <input class="form-control" type="datetime" name="data_inicio" id="data_inicio" required autocomplete="off">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="data_fim">Fim</label>
+                            <input class="form-control" type="datetime" name="data_fim" id="data_fim" required autocomplete="off">
                         </div>
                         
                         <div class="mb-3">
@@ -38,7 +43,9 @@
                             @foreach($componentes as $componente)
                                 <p>Nome: {{ $componente->nome }}</p>
                                 <br>
-                                <p>Periodo: {{ $componente->periodo }}</p>
+                                <p>Inicio: {{ $componente->data_inicio }}</p>
+                                <br>
+                                <p>Fim: {{ $componente->data_fim }}</p>
                                 <br>
                                 <p>ID: {{ $componente->id }}</p>
                                 <hr>
