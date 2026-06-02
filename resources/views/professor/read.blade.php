@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Alunos</title>
+    <title>Listar professores</title>
 </head>
 <body>
 <table border="1">
                     <tr>
                         <td colspan="2">Ações</td>
                 </tr>
-                @isset($alunos)
-                @foreach($alunos as $aluno)
+                @isset($professores)
+                @foreach($professores as $professor)
                 <tr>
                     <td>
-                        <p>{{ $aluno->nome }}</p>
+                        <p>{{ $professor->nome }}</p>
                     </td>
                     <td>
-                            <form action="{{ route('aluno.delete', ['id' => $aluno->id]) }}" method="GET">
+                    <p>{{ $professor->email }}</p>
+                    </td>
+                    <td>
+                    <p>{{ $professor->telefone }}</p>
+                    </td>
+                    <td>
+                            <form action="{{ route('professor.delete', ['id' => $professor->id]) }}" method="GET">
                                 <button type="submit">Deletar</button>
                             </form>
                     </td>
                     <td>
-                            <form action="{{ route('aluno.update', ['id' => $aluno->id]) }}" method="GET">
+                            <form action="{{ route('professor.update', ['id' => $professor->id]) }}" method="GET">
                                 <button type="submit">Atualizar</button>
                             </form>
                     </td>

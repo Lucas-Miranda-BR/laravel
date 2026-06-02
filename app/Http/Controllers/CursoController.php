@@ -16,18 +16,35 @@ class CursoController extends Controller
         $curso::create($dados->all());
 
         $cursos = new \App\Models\CursoModel();
-        return view('curso.index', ['success' => 'Cadastro de curso realizado!', 'cursos'=>$cursos::all()]);
+        return view('curso.index', ['success'=>'Cadastrado de curso realizado!']);
     }
 
     function readCurso(){
+        $curso = new \App\Models\CursoModel();
 
+        return view('curso.read', ['cursos'=>$curso::all()]);
     }
 
-    function updateCurso(){
+    function updateCurso(string $id){
+        $curso = new \App\Models\CursoModel();
+        $curso = $curso::find($id);
 
+        return view('curso.update', ['curso'=>$curso]);
     }
 
-    function deleteCurso(){
+    function deleteCurso(string $id) {
+            $curso = new \App\Models\CursoModel();
+            $curso::destroy($id);
+    
+            return view('curso.index', ['success'=>'Removido!', 'cursos'=>$curso::all()]);
+    
+        }
+    
+    function saveCurso(Request $dados){
+        $curso = new \App\Models\CursoModel();
+        $curso = $curso::find($dados->id);
+        $curso->update($dados->all());
 
+        return view('curso.index', ['success'=>'Atualizado', 'curso'=>$curso]);
     }
 }

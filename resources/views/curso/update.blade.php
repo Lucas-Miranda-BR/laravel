@@ -3,24 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Atualizar aluno</title>
+    <title>Atualizar curso</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
     <body>
         <div class="d-flex justify-content-center">
-            <form action="{{route('aluno.save')}}" method="post">
+            <form action="{{route('curso.save')}}" method="post">
                 <fieldset>
-                    <legend>Atualizar aluno</legend>
+                    <legend>Atualizar curso</legend>
 
                     @csrf
 
-                    <input type="hidden" name="id" value="{{ $aluno->id }}">
+                    <input type="hidden" name="id" value="{{ $curso->id }}">
                         
                     <div class="mb-3"> 
                         <label class="form-label" for="nome">Nome</label>
-                        <input class="form-control" type="text" name="nome" id="nome" required autocomplete="off" value="{{ $aluno->nome }}">
+                        <input class="form-control" type="text" name="nome" id="nome" required autocomplete="off" value="{{ $curso->nome }}">
                     </div>
 
+                    <div class="mb-3">
+                            <label class="form-label" for="periodo">Periodo</label>
+                            <input class="form-control" type="text" name="periodo" id="periodo" required autocomplete="off" value="{{ $curso->periodo }}">
+                        </div>
+                        
                     <div class="mb-3">
                         <button class="btn btn-primary" type="submit">Atualizar</button>
                     </div>

@@ -40,11 +40,11 @@ class AlunoController extends Controller
     
         }
     
-    function saveAluno(Request $dados){
-        $aluno = new \App\Models\AlunoModel();
-        $aluno = $aluno::find($dados->id);
-        $aluno->update($dados->all());
-
-        return view('aluno.update', ['success'=>'Atualizado', 'aluno=>$aluno']);
-    }
+        function saveAluno(Request $dados) {
+            $aluno = new \App\Models\AlunoModel();
+            $aluno = $aluno::find($dados->id);
+            $aluno->update($dados->all());
+    
+            return view('aluno.index', ['success'=>'Atualizado!', 'alunos'=>$aluno::all()]);
+        }
 }

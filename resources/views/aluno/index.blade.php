@@ -13,6 +13,7 @@
                         <legend>Cadastro de aluno</legend>
 
                         @csrf
+
                         
                         <div class="mb-3"> 
                             <label class="form-label" for="nome">Nome</label>
@@ -30,32 +31,7 @@
                         @endisset
                 </fieldset>
             </form>
-                <table border="1">
-                    <tr>
-                        <td>Nome do Aluno</td>
-                        <td colspan="2">Ações</td>
-                </tr>
-                @isset($alunos)
-                @foreach($alunos as $aluno)
-                <tr>
-                    <td>
-                        <p>{{ $aluno->nome }}</p>
-                    </td>
-                    <td>
-                            <form action="{{ route('aluno.delete', ['id' => $aluno->id]) }}" method="GET">
-                                <button type="submit">Deletar</button>
-                            </form>
-                    </td>
-                    <td>
-                            <form action="{{ route('aluno.update', ['id' => $aluno->id]) }}" method="GET">
-                                <button type="submit">Atualizar</button>
-                            </form>
-                    </td>
-                </tr>
-                @endforeach
-                @endisset
-            </table>
-            <button><a href="{{route('aluno.read')}}">Listagem de Alunos</a></button>
+            <button><a href="{{route('aluno.read')}}">Listagem de alunos</a></button>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>

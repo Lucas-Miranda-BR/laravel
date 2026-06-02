@@ -38,21 +38,9 @@
                             <p>{{$success}}</p>
                             </div>
                         @endisset
-
-                        @isset($professores)
-                            @foreach($professores as $professor)
-                                <p>Nome: {{ $professor->nome }}</p>
-                                <br>
-                                <p>E-mail: {{ $professor->email }}</p>
-                                <br>
-                                <p>Nº de Telefone: {{ $professor->telefone }}</p>
-                                <br>
-                                <p>ID: {{ $professor->id }}</p>
-                                <hr>
-                            @endforeach
-                    @endisset
                     </fieldset>
                 </form>
+                <button><a href="{{route('professor.read')}}">Listagem de professores</a></button>
             </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>

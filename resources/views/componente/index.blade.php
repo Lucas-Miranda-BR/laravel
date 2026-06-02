@@ -39,20 +39,10 @@
                             </div>
                         @endisset
 
-                        @isset($componentes)
-                            @foreach($componentes as $componente)
-                                <p>Nome: {{ $componente->nome }}</p>
-                                <br>
-                                <p>Inicio: {{ $componente->data_inicio }}</p>
-                                <br>
-                                <p>Fim: {{ $componente->data_fim }}</p>
-                                <br>
-                                <p>ID: {{ $componente->id }}</p>
-                                <hr>
-                            @endforeach
-                    @endisset
+
                     </fieldset>
                 </form>
+                <button><a href="{{route('componente.read')}}">Listagem de componentes</a></button>
             </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>

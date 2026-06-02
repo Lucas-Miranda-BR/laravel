@@ -59,26 +59,10 @@
                             </div>
                         @endisset
 
-                        @isset($adminstradores)
-                            @foreach($adminstradores as $adminstrador)
-                                <p>Nome: {{ $adminstrador->nome }}</p>
-                                <br>
-                                <p>E-mail: {{ $adminstrador->email }}</p>
-                                <br>
-                                <p>Nº de Telefone: {{ $adminstrador->telefone }}</p>
-                                <br>
-                                <p>Nº de CPF: {{ $adminstrador->cpf }}</p>
-                                <br>
-                                <p>Nome do Usuario: {{ $adminstrador->usuario_nome }}</p>
-                                <br>
-                                <p>Status: {{ $adminstrador->status }}</p>
-                                <br>
-                                <p>ID: {{ $adminstrador->id }}</p>
-                                <hr>
-                            @endforeach
-                    @endisset
                     </fieldset>
                 </form>
+
+                <button><a href="{{route('adminstrador.read')}}">Listagem de adminstradores</a></button>
             </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>

@@ -3,24 +3,34 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Atualizar aluno</title>
+    <title>Atualizar professor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
     <body>
         <div class="d-flex justify-content-center">
-            <form action="{{route('aluno.save')}}" method="post">
+            <form action="{{route('professor.save')}}" method="post">
                 <fieldset>
-                    <legend>Atualizar aluno</legend>
+                    <legend>Atualizar professor</legend>
 
                     @csrf
 
-                    <input type="hidden" name="id" value="{{ $aluno->id }}">
+                    <input type="hidden" name="id" value="{{ $professor->id }}">
                         
                     <div class="mb-3"> 
                         <label class="form-label" for="nome">Nome</label>
-                        <input class="form-control" type="text" name="nome" id="nome" required autocomplete="off" value="{{ $aluno->nome }}">
+                        <input class="form-control" type="text" name="nome" id="nome" required autocomplete="off" value="{{ $professor->nome }}">
                     </div>
 
+                    <div class="mb-3">
+                            <label class="form-label" for="email">E-mail</label>
+                            <input class="form-control" type="email" name="email" id="email" required autocomplete="off" value="{{ $professor->email }}">
+                        </div>
+
+                    <div class="mb-3">
+                            <label class="form-label" for="telefone">Nº de Telefone</label>
+                            <input class="form-control" type="tel" name="telefone" id="telefone" placeholder="Telefone deve ser 11 digitos." required autocomplete="off" pattern="[0-9]{11}" value="{{ $professor->telefone }}">
+                        </div>
+                    
                     <div class="mb-3">
                         <button class="btn btn-primary" type="submit">Atualizar</button>
                     </div>

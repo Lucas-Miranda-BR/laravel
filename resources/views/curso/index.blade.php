@@ -34,18 +34,10 @@
                             </div>
                         @endisset
 
-                        @isset($cursos)
-                            @foreach($cursos as $curso)
-                                <p>Nome: {{ $curso->nome }}</p>
-                                <br>
-                                <p>Periodo: {{ $curso->periodo }}</p>
-                                <br>
-                                <p>ID: {{ $curso->id }}</p>
-                                <hr>
-                            @endforeach
-                    @endisset
+
                     </fieldset>
                 </form>
+                <button><a href="{{route('curso.read')}}">Listagem de cursos</a></button>
             </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>
