@@ -30,28 +30,28 @@ class Componente extends Controller
                   'hora_fim.required' => 'O campo hora_fim é obrigatório.',
               ]
       );
-        $componente = new \App\Models\ComponenteModel();
+        $componente = new \App\Models\Componente();
         $componente::create($dados->all());
 
-        $componentes = new \App\Models\ComponenteModel();
+        $componentes = new \App\Models\Componente();
         return view('componente.index', ['success'=>'Cadastrado de componente realizado!']);
     }
 
     function readComponente(){
-        $componente = new \App\Models\ComponenteModel();
+        $componente = new \App\Models\Componente();
 
         return view('componente.read', ['componentes'=>$componente::all()]);
     }
 
     function updateComponente(string $id){
-        $componente = new \App\Models\ComponenteModel();
+        $componente = new \App\Models\Componente();
         $componente = $componente::find($id);
 
         return view('componente.update', ['componente'=>$componente]);
     }
 
     function deleteComponente(string $id) {
-            $componente = new \App\Models\ComponenteModel();
+            $componente = new \App\Models\Componente();
             $componente::destroy($id);
     
             return view('componente.index', ['success'=>'Removido!', 'componentes'=>$componente::all()]);
@@ -76,10 +76,17 @@ class Componente extends Controller
               ]
       );
 
-        $componente = new \App\Models\ComponenteModel();
+      if ($validator->fails()) {
+        return redirect()
+            ->route('componente.update')
+            ->withErrors($validator)
+            ->withInput();
+    }
+
+        $componente = new \App\Models\Componente();
         $componente = $componente::find($dados->id);
         $componente->update($dados->all());
 
-        return view('componente.index', ['success'=>'Atualizado', 'componente'=>$componente]);
+        return view('componente.update', ['success'=>'Atualizado', 'componente'=>$componente]);
     }
 }

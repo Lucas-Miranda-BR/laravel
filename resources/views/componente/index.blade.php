@@ -16,17 +16,17 @@
                         
                         <div class="mb-3"> 
                             <label class="form-label" for="nome">Nome</label>
-                            <input class="form-control" type="text" name="nome" id="nome" required autocomplete="off">
+                            <input class="form-control" type="text" name="nome" id="nome" value="{{ old('nome') }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="data_inicio">Inico</label>
-                            <input class="form-control" type="datetime" name="data_inicio" id="data_inicio" required autocomplete="off">
+                            <input class="form-control" type="datetime" name="data_inicio" id="data_inicio" value="{{ old('data_inicio') }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="data_fim">Fim</label>
-                            <input class="form-control" type="datetime" name="data_fim" id="data_fim" required autocomplete="off">
+                            <input class="form-control" type="datetime" name="data_fim" id="data_fim" value="{{ old('data_fim') }}" required autocomplete="off">
                         </div>
                         
                         <div class="mb-3">
@@ -38,7 +38,13 @@
                             <p>{{$success}}</p>
                             </div>
                         @endisset
-
+                        @if($errors->any())
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
 
                     </fieldset>
                 </form>

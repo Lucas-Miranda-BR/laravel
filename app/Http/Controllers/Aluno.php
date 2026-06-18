@@ -28,32 +28,32 @@ class Aluno extends Controller
 
       if ($validator->fails()) {
           return redirect()
-              ->route('adminstrador.index')
+              ->route('aluno.index')
               ->withErrors($validator)
               ->withInput();
       }
-        $aluno = new \App\Models\AlunoModel();
+        $aluno = new \App\Models\Aluno();
         $aluno::create($dados->all());
 
-        $alunos = new \App\Models\AlunoModel();
+        $alunos = new \App\Models\Aluno();
         return view('aluno.index', ['success'=>'Cadastrado de aluno realizado!']);
     }
 
     function readAluno(){
-        $aluno = new \App\Models\AlunoModel();
+        $aluno = new \App\Models\Aluno();
 
         return view('aluno.read', ['alunos'=>$aluno::all()]);
     }
 
     function updateAluno(string $id){
-        $aluno = new \App\Models\AlunoModel();
+        $aluno = new \App\Models\Aluno();
         $aluno = $aluno::find($id);
 
         return view('aluno.update', ['aluno'=>$aluno]);
     }
 
     function deleteAluno(string $id) {
-            $aluno = new \App\Models\AlunoModel();
+            $aluno = new \App\Models\Aluno();
             $aluno::destroy($id);
     
             return view('aluno.index', ['success'=>'Removido!', 'alunos'=>$aluno::all()]);
@@ -76,14 +76,14 @@ class Aluno extends Controller
   
           if ($validator->fails()) {
               return redirect()
-                  ->route('adminstrador.index')
+                  ->route('aluno.update')
                   ->withErrors($validator)
                   ->withInput();
           }
-            $aluno = new \App\Models\AlunoModel();
+            $aluno = new \App\Models\Aluno();
             $aluno = $aluno::find($dados->id);
             $aluno->update($dados->all());
     
-            return view('aluno.index', ['success'=>'Atualizado!', 'alunos'=>$aluno::all()]);
+            return view('aluno.update', ['success'=>'Atualizado!', 'alunos'=>$aluno::all()]);
         }
 }

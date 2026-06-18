@@ -16,12 +16,12 @@
                         
                         <div class="mb-3"> 
                             <label class="form-label" for="nome">Nome</label>
-                            <input class="form-control" type="text" name="nome" id="nome" required autocomplete="off">
+                            <input class="form-control" type="text" name="nome" id="nome" value="{{ old('nome') }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="periodo">Periodo</label>
-                            <input class="form-control" type="text" name="periodo" id="periodo" required autocomplete="off">
+                            <input class="form-control" type="text" name="periodo" id="periodo" value="{{ old('periodo') }}" required autocomplete="off">
                         </div>
                         
                         <div class="mb-3">
@@ -33,6 +33,13 @@
                             <p>{{$success}}</p>
                             </div>
                         @endisset
+                        @if($errors->any())
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
 
 
                     </fieldset>

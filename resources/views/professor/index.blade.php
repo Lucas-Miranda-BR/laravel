@@ -16,17 +16,17 @@
                         
                         <div class="mb-3"> 
                             <label class="form-label" for="nome">Nome</label>
-                            <input class="form-control" type="text" name="nome" id="nome" required autocomplete="off">
+                            <input class="form-control" type="text" name="nome" id="nome" value="{{ old('nome') }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="email">E-mail</label>
-                            <input class="form-control" type="email" name="email" id="email" required autocomplete="off">
+                            <input class="form-control" type="email" name="email" id="email" value="{{ old('email') }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="telefone">Nº de Telefone</label>
-                            <input class="form-control" type="tel" name="telefone" id="telefone" placeholder="Número de 11 digitos." required autocomplete="off" pattern="[0-9]{11}">
+                            <input class="form-control" type="tel" name="telefone" id="telefone" value="{{ old('telefone') }}" placeholder="Número de 11 digitos." required autocomplete="off" pattern="[0-9]{11}">
                         </div>
                         
                         <div class="mb-3">
@@ -38,6 +38,13 @@
                             <p>{{$success}}</p>
                             </div>
                         @endisset
+                        @if($errors->any())
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </fieldset>
                 </form>
                 <button><a href="{{route('professor.read')}}">Listagem de professores</a></button>

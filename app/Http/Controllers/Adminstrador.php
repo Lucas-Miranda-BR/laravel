@@ -58,28 +58,28 @@ class Adminstrador extends Controller
                 ->withInput();
         }
         
-        $adminstrador = new \App\Models\AdminstradorModel();
+        $adminstrador = new \App\Models\Adminstrador();
         $adminstrador::create($dados->all());
 
-        $adminstradores = new \App\Models\AdminstradorModel();
+        $adminstradores = new \App\Models\Adminstrador();
         return view('adminstrador.index', ['success'=>'Cadastrado de adminstrador realizado!']);
     }
 
     function readAdminstrador(){
-        $adminstrador = new \App\Models\AdminstradorModel();
+        $adminstrador = new \App\Models\Adminstrador();
 
         return view('adminstrador.read', ['adminstradores'=>$adminstrador::all()]);
     }
 
     function updateAdminstrador(string $id){
-        $adminstrador = new \App\Models\AdminstradorModel();
+        $adminstrador = new \App\Models\Adminstrador();
         $adminstrador = $adminstrador::find($id);
 
         return view('adminstrador.update', ['adminstrador'=>$adminstrador]);
     }
 
     function deleteAdminstrador(string $id) {
-            $adminstrador = new \App\Models\AdminstradorModel();
+            $adminstrador = new \App\Models\Adminstrador();
             $adminstrador::destroy($id);
     
             return view('adminstrador.index', ['success'=>'Removido!', 'adminstradors'=>$adminstrador::all()]);
@@ -126,14 +126,14 @@ class Adminstrador extends Controller
 
       if ($validator->fails()) {
           return redirect()
-              ->route('adminstrador.index')
+              ->route('adminstrador.update')
               ->withErrors($validator)
               ->withInput();
       }
-        $adminstrador = new \App\Models\AdminstradorModel();
+        $adminstrador = new \App\Models\Adminstrador();
         $adminstrador = $adminstrador::find($dados->id);
         $adminstrador->update($dados->all());
 
-        return view('adminstrador.index', ['success'=>'Atualizado', 'adminstrador'=>$adminstrador]);
+        return view('adminstrador.update', ['success'=>'Atualizado', 'adminstrador'=>$adminstrador]);
     }
 }
