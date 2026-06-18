@@ -17,7 +17,7 @@
                         
                         <div class="mb-3"> 
                             <label class="form-label" for="nome">Nome</label>
-                            <input class="form-control" type="text" name="nome" id="nome" required autocomplete="off">
+                            <input class="form-control" type="text" name="nome" id="nome" value="{{ old('nome') }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-3">
@@ -29,6 +29,13 @@
                             <p>{{$success}}</p>
                             </div>
                         @endisset
+                        @if($errors->any())
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
                 </fieldset>
             </form>
             <button><a href="{{route('aluno.read')}}">Listagem de alunos</a></button>

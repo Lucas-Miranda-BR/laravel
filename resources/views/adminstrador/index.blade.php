@@ -16,37 +16,37 @@
                         
                         <div class="mb-3"> 
                             <label class="form-label" for="nome">Nome</label>
-                            <input class="form-control" type="text" name="nome" id="nome" required autocomplete="off">
+                            <input class="form-control" type="text" name="nome" id="nome" value="{{ old('nome') }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="email">E-mail</label>
-                            <input class="form-control" type="email" name="email" id="email" required autocomplete="off">
+                            <input class="form-control" type="email" name="email" id="email" value="{{ old('email') }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="telefone">Nº de Telefone</label>
-                            <input class="form-control" type="tel" name="telefone" id="telefone" placeholder="Telefone deve ser 11 digitos." required autocomplete="off" pattern="[0-9]{11}">
+                            <input class="form-control" type="tel" name="telefone" id="telefone" placeholder="Telefone deve ser 11 digitos." value="{{ old('telefone') }}" required autocomplete="off" pattern="[0-9]{11}">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="cpf">Nº de CPF</label>
-                            <input class="form-control" type="number" name="cpf" id="cpf" placeholder="CPF deve ser 11 digitos." required autocomplete="off">
+                            <input class="form-control" type="number" name="cpf" id="cpf" placeholder="CPF deve ser 11 digitos." value="{{ old('cpf') }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="usuario_nome">Nome de Usuario</label>
-                            <input class="form-control" type="text" name="usuario_nome" id="usuario_nome" required autocomplete="off">
+                            <input class="form-control" type="text" name="usuario_nome" id="usuario_nome" value="{{ old('usuario_nome') }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="senha">Senha</label>
-                            <input class="form-control" type="password" name="senha" id="senha" required autocomplete="off">
+                            <input class="form-control" type="password" name="senha" id="senha" value="{{ old('senha') }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="status">Status</label>
-                            <input class="form-control" type="text" name="status" id="status" required autocomplete="off" maxlenght="50">
+                            <input class="form-control" type="text" name="status" id="status" value="{{ old('status') }}" required autocomplete="off" maxlenght="50">
                         </div>
                         
                         <div class="mb-3">
@@ -55,10 +55,16 @@
 
                         @isset($success)
                             <div class="mb-3">
-                            <p>{{$success}}</p>
+                                <p>{{$success}}</p>
                             </div>
                         @endisset
-
+                        @if($errors->any())
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </fieldset>
                 </form>
 

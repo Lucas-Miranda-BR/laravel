@@ -38,17 +38,17 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="usuario_nome">Nome de Usuario</label>
-                            <input class="form-control" type="text" name="usuario_nome" id="usuario_nome" required autocomplete="off" value="{{ $adminstrador->usuario_nome }}">
+                            <input class="form-control" type="text" name="usuario_nome" id="usuario_nome"  required autocomplete="off" value="{{ $adminstrador->usuario_nome }}">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="senha">Senha</label>
-                            <input class="form-control" type="password" name="senha" id="senha" required autocomplete="off" value="{{ $adminstrador->senha }}">
+                            <input class="form-control" type="password" name="senha" id="senha"  required autocomplete="off" value="{{ $adminstrador->senha }}">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="status">Status</label>
-                            <input class="form-control" type="text" name="status" id="status" required autocomplete="off" maxlenght="50" value="{{ $adminstrador->status }}">
+                            <input class="form-control" type="text" name="status" id="status"  required autocomplete="off" maxlenght="50" value="{{ $adminstrador->status }}">
                         </div>
 
                     <div class="mb-3">
@@ -57,9 +57,16 @@
 
                     @isset($success)
                         <div class="mb-3">
-                        <p>{{$success}}</p>
+                            <p>{{$success}}</p>
                         </div>
                     @endisset
+                    @if($errors->any())
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>
