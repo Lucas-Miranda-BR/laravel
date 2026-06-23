@@ -23,12 +23,12 @@
 
                     <div class="mb-3">
                             <label class="form-label" for="data_inicio">Inicio</label>
-                            <input class="form-control" type="datetime" name="data_inicio" id="data_inicio" required autocomplete="off" value="{{ $componente->data_inicio }}">
+                            <input class="form-control" type="time" name="data_inicio" id="data_inicio" required autocomplete="off" value="{{ $componente->data_inicio }}">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="data_fim">Fim</label>
-                            <input class="form-control" type="datetime" name="data_fim" id="data_fim" required autocomplete="off" value="{{ $componente->data_fim }}">
+                            <input class="form-control" type="time" name="data_fim" id="data_fim" required autocomplete="off" value="{{ $componente->data_fim }}">
                         </div>
 
                     <div class="mb-3">
