@@ -21,12 +21,12 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="data_inicio">Inico</label>
-                            <input class="form-control" type="datetime" name="data_inicio" id="data_inicio" value="{{ old('data_inicio') }}" required autocomplete="off">
+                            <input class="form-control" type="time" name="data_inicio" id="data_inicio" value="{{ old('data_inicio') }}" required autocomplete="off">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="data_fim">Fim</label>
-                            <input class="form-control" type="datetime" name="data_fim" id="data_fim" value="{{ old('data_fim') }}" required autocomplete="off">
+                            <input class="form-control" type="time" name="data_fim" id="data_fim" value="{{ old('data_fim') }}" required autocomplete="off">
                         </div>
                         
                         <div class="mb-3">
