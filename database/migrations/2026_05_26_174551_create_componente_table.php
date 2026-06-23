@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nome');
-            $table->datetime('hora_inicio');
-            $table->datetime('hora_fim');
+            $table->time('hora_inicio');
+            $table->time('hora_fim');
         });
     }
 
