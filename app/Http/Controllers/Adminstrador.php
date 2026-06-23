@@ -82,7 +82,7 @@ class Adminstrador extends Controller
             $adminstrador = new \App\Models\Adminstrador();
             $adminstrador::destroy($id);
     
-            return view('adminstrador.index', ['success'=>'Removido!', 'adminstradors'=>$adminstrador::all()]);
+            return view('adminstrador.index', ['success'=>'Removido!', 'adminstrador'=>$adminstrador::all()]);
     
         }
     
