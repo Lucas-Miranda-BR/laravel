@@ -53,37 +53,20 @@ class Aluno extends Controller
     }
 
     function saveAluno(Request $dados) {
-        $validator = Validator::make(
-            $dados->all(),
-              [
-                  'nome' => 'required|min:3|max:255',
-                  
-              ],
-              [
-                  'nome.required' => 'O campo nome é obrigatório.',
-                  'nome.min' => 'O campo nome deve conter no mínimo 3 caracteres.',
-                  'nome.max' => 'O campo nome deve conter no máximo 255 caracteres.',
-              ]
-      );
 
-      if ($validator->fails()) {
-          return redirect()
-              ->route('aluno.update')
-              ->withErrors($validator)
-              ->withInput();
-      }
         $aluno = new \App\Models\Aluno();
         $aluno = $aluno::find($dados->id);
         $aluno->update($dados->all());
 
-        return view('aluno.update', ['success'=>'Atualizado!', 'aluno'=>$aluno]);
+        return view('aluno.index', ['success'=>'Atualizado!', 'aluno'=>$aluno]);
+    }
+
+    function deleteAluno(string $id) {
+        $aluno = new \App\Models\Aluno();
+        $aluno::destroy($id);
+    
+        return view('aluno.index', ['success'=>'Removido!', 'alunos'=>$aluno::all()]);
+    
     }
 }
-    function deleteAluno(string $id) {
-            $aluno = new \App\Models\Aluno();
-            $aluno::destroy($id);
-    
-            return view('aluno.index', ['success'=>'Removido!', 'aluno'=>$aluno::all()]);
-    
-        }
     

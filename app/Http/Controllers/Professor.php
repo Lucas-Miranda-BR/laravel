@@ -68,32 +68,7 @@ class Professor extends Controller
         }
     
     function saveProfessor(Request $dados){
-        $validator = Validator::make(
-            $dados->all(),
-              [
-                  'nome' => 'required|min:3|max:255',
-                  'email' => 'required|unique:Professor',
-                  'telefone' => 'required|min:11|max:11'
-                  
-              ],
-              [
-                  'nome.required' => 'O campo nome é obrigatório.',
-                  'nome.min' => 'O campo nome deve conter no mínimo 3 caracteres.',
-                  'nome.max' => 'O campo nome deve conter no máximo 255 caracteres.',
-                  'email.required' => 'O campo e-mail é obrigatório.',
-                  'email.unique' => 'O campo e-mail deve ser unico.',
-                  'telefone.required' => 'O campo telefone é obrigatório.',
-                  'telefone.min' => 'O campo telefone deve conter no mínimo 11 caracteres.',
-                  'telefone.max' => 'O campo telefone deve conter no máximo 11 caracteres.'
-              ]
-      );
 
-      if ($validator->fails()) {
-          return redirect()
-              ->route('adminstrador.index')
-              ->withErrors($validator)
-              ->withInput();
-      }
         $professor = new \App\Models\Professor();
         $professor = $professor::find($dados->id);
         $professor->update($dados->all());

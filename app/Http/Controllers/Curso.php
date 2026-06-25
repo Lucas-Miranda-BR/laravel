@@ -58,30 +58,11 @@ class Curso extends Controller
         }
     
     function saveCurso(Request $dados){
-        $validator = Validator::make(
-            $dados->all(),
-              [
-                  'nome' => 'required|min:3|max:255',
-                  'perido' => 'required'
-                  
-              ],
-              [
-                  'nome.required' => 'O campo nome é obrigatório.',
-                  'nome.min' => 'O campo nome deve conter no mínimo 3 caracteres.',
-                  'nome.max' => 'O campo nome deve conter no máximo 255 caracteres.',
-                  'periodo.required' => 'O campo periodo é obrigatório.'
-              ]
-              );
-              if ($validator->fails()) {
-                return redirect()
-                    ->route('curso.update')
-                    ->withErrors($validator)
-                    ->withInput();
-            }
+
         $curso = new \App\Models\Curso();
         $curso = $curso::find($dados->id);
         $curso->update($dados->all());
 
-        return view('curso.update', ['success'=>'Atualizado', 'curso'=>$curso]);
+        return view('curso.index', ['success'=>'Atualizado', 'curso'=>$curso]);
     }
 }
