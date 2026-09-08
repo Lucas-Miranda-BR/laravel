@@ -13,7 +13,11 @@ use App\Http\Middleware\LogAcessoMiddleware;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
+Route::get('/', [App\Http\Controllers\PrincipalController::class, 'principal']);
+
+Route::prefix('/produto')->group(function (){
+    Route::get('/index/{produto_id}/{nome}', [App\Http\Controllers\ProdutoController::class, 'index'])->name('produto.index');
+});
 
 
 
